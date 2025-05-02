@@ -14,13 +14,7 @@ const Project = () => {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTask, setEditedTask] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false); // ✅ Add Task Modal State
-
-  useEffect(() => {
-    fetchProjectDetails();
-    fetchTasksDetails();
-    setLoading(false);
-  }, [id]);
+  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false); 
 
   const fetchProjectDetails = async () => {
     try {
@@ -29,7 +23,7 @@ const Project = () => {
         setProject(res.data);
       }
     } catch (error) {
-      console.error("❌ Failed to fetch project details:", error);
+      console.log("❌ Failed to fetch project details:", error);
     }
   };
 
@@ -40,9 +34,15 @@ const Project = () => {
         setTasks(res.data);
       }
     } catch (error) {
-      console.error("❌ Failed to fetch tasks:", error);
+      console.log("❌ Failed to fetch tasks:", error);
     }
   };
+
+  useEffect(() => {
+    fetchProjectDetails();
+    fetchTasksDetails();
+    setLoading(false);
+  },[id]); 
 
   const handleEditClick = (task) => {
     setEditingTaskId(task._id);
@@ -146,7 +146,6 @@ const Project = () => {
         )}
       </div>
 
-      {/* ✅ Modal for Editing Task */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">

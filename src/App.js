@@ -27,7 +27,7 @@ const RootRedirect = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/TaskFlow">
       <AuthProvider>
         <Routes>
           <Route path="/" element={<RootRedirect />} />

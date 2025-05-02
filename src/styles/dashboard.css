@@ -1,6 +1,7 @@
 .dashboard-container {
   padding: 3rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
 }
 
 .welcome-card {

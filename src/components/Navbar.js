@@ -12,7 +12,6 @@ const Navbar = ({ user, onLogout }) => {
     <nav className="navbar">
       
       <div className="navbar-left">
-        <img src={Logo} alt="Logo" className="navbar-logo" />
         <span className="navbar-title">TaskFlow</span>
       </div>
 
