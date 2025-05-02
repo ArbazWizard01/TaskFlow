@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TaskFlow/static/css/main.c09187e4.css",
+    "main.js": "/TaskFlow/static/js/main.a6c6c478.js",
+    "static/js/453.419a5d54.chunk.js": "/TaskFlow/static/js/453.419a5d54.chunk.js",
+    "index.html": "/TaskFlow/index.html",
+    "main.c09187e4.css.map": "/TaskFlow/static/css/main.c09187e4.css.map",
+    "main.a6c6c478.js.map": "/TaskFlow/static/js/main.a6c6c478.js.map",
+    "453.419a5d54.chunk.js.map": "/TaskFlow/static/js/453.419a5d54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c09187e4.css",
+    "static/js/main.a6c6c478.js"
+  ]
+}
