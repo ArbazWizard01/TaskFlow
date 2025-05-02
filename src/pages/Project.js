@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import API from "../services/api";
 import "../styles/project.css";
 import { AuthContext } from "../contexts/AuthContext";
@@ -14,7 +14,8 @@ const Project = () => {
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTask, setEditedTask] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false); 
+  const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+  const navigate = useNavigate();
 
   const fetchProjectDetails = async () => {
     try {
@@ -42,7 +43,7 @@ const Project = () => {
     fetchProjectDetails();
     fetchTasksDetails();
     setLoading(false);
-  },[id]); 
+  }, [id]);
 
   const handleEditClick = (task) => {
     setEditingTaskId(task._id);
@@ -91,6 +92,9 @@ const Project = () => {
 
   return (
     <div className="project-detail-container">
+      <button className="back-btn" onClick={() => navigate("/dashboard")}>
+        ⬅ Back to Dashboard
+      </button>
       <div className="project-header">
         <h2>{project.title}</h2>
         <p>
