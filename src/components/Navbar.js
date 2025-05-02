@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/navbar.css";
 
-const Logo = "/taskflow-logo.png";
 
 const Navbar = ({ user, onLogout }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
