@@ -109,6 +109,7 @@ const Dashboard = () => {
         {projects.map((project) => (
           <div className="project-card" key={project._id}>
             <h4 className="project-name">{project.title}</h4>
+            <h6 className="project-name">{project.description}</h6>
             <p className="project-task">
               TASKS: {countTasks?.[project._id] || 0}
             </p>

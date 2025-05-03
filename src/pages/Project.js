@@ -91,7 +91,10 @@ const Project = () => {
   if (!project) return <p>Project not found</p>;
 
   return (
-    <div className="project-detail-container">
+    <div className="project-container">
+      <div className="project-detail-container">
+
+      </div>
       <button className="back-btn" onClick={() => navigate("/dashboard")}>
         ⬅ Back to Dashboard
       </button>

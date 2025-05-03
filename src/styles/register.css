@@ -109,3 +109,23 @@ footer a {
   color: #3b82f6;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+  }
+
+  .auth-left {
+    display: none;
+  }
+
+  .auth-left img {
+    display: none;
+  }
+  .auth-left h1 {
+    display: none;
+  }
+}

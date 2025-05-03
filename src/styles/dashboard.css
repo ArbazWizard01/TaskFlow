@@ -120,3 +120,42 @@
   opacity: 0.9;
   transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .status-cards {
+    flex-direction: column;
+  }
+  .status-card {
+    flex: none;
+    margin-bottom: 1rem;
+  }
+  .status-card h3 {
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+  }
+  .status-card p {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .project-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .project-card {
+    padding: 1rem;
+  }
+  .project-card h6 {
+    font-size: 1rem;
+  }
+
+  .nav-btn{
+    height: 50px;
+    background-color: rgba(0, 255, 255, 0.069);
+  }
+  .projects-title{
+    font-size: 1.5rem;
+    color: #302b29;
+  }
+}

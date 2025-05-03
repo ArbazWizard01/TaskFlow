@@ -134,3 +134,23 @@ footer a {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+  }
+
+  .auth-left{
+    display: none;
+  }
+
+  .auth-left img{
+    display: none;
+  }
+  .auth-left h1 {
+    display: none;
+  }
+}
