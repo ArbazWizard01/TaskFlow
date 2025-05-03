@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# 📝 TaskFlow
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TaskFlow is a full-stack task management application that allows users to create and manage projects, add tasks to each project, and track progress efficiently. Designed for simplicity and productivity, it provides a clear interface and robust backend functionality.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+* 🔐 User Authentication (JWT-based)
+* 📁 Project Management (Create, Read)
+* ✅ Task CRUD (Create, Read, Update, Delete)
+* 🗕️ Track task status (`pending`, `in progress`, `completed`)
+* 📅 Auto-updated `completedAt` timestamp when a task is marked as completed
+* 💽 Responsive and user-friendly interface
+* 📦 Modal-based inline editing for tasks
+* 🔒 Route protection and user-specific data handling
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 💠 Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
 
-### `npm test`
+* React
+* React Router
+* Axios
+* Context API (for auth)
+* Custom CSS (with modal UI)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+* Node.js
+* Express.js
+* MongoDB (Native Driver)
+* JWT Authentication
+* Bcrypt for password hashing
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+taskflow/
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middlewares/
+│   └── db.js
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── styles/
+│   │   ├── services/api.js
+│   │   └── contexts/AuthContext.js
+│   └── public/
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧪 API Endpoints
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Auth
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* `POST /auth/register` - Register user
+* `POST /auth/login` - Login user and receive JWT
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Projects
 
-## Learn More
+* `POST /projects` - Create a project
+* `GET /projects` - Get all user projects
+* `GET /projects/:id` - Get a specific project (with validation)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Tasks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* `GET /tasks/:projectId` - Get tasks for a project
+* `POST /tasks/:projectId` - Add a task to a project
+* `PATCH /tasks/:taskId` - Update a task
+* `DELETE /tasks/:taskId` - Delete a task
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🧑‍💻 Getting Started
 
-### Analyzing the Bundle Size
+### 1. Clone the repo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+git clone https://github.com/your-username/taskflow.git
+cd taskflow
+```
 
-### Making a Progressive Web App
+### 2. Setup Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-### Advanced Configuration
+Make sure to configure your MongoDB URI and JWT secret in a `.env` file:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```env
+MONGO_URI=mongodb://localhost:27017/taskflow
+JWT_SECRET=your_jwt_secret
+```
 
-### Deployment
+### 3. Setup Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+cd frontend
+npm install
+npm start
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔐 Authentication
+
+JWT tokens are issued upon login and stored in localStorage. The token is sent in headers for all protected routes.
+
+---
+
+## 📸 Screenshots
+
+![WhatsApp Image 2025-05-03 at 17 46 33_ba85303d](https://github.com/user-attachments/assets/097cef1a-dd12-4787-970b-328a6828c778)
+
+![WhatsApp Image 2025-05-03 at 17 46 45_898e2ee5](https://github.com/user-attachments/assets/a63fbb43-17c7-4b07-bcf4-ebd7578a21d8)
+
+---
+
+## 🤝 Contributing
+
+PRs are welcome! If you find bugs or want to suggest features, feel free to open issues.
+
+---
+
+## 📄 License
+
+MIT License © 2025 [Arbaz](https://github.com/ArbazWizard01)
