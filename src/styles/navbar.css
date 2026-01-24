@@ -32,65 +32,86 @@
   color: #003366;
 }
 
-/* Profile section */
-.navbar-profile {
-  position: relative;
+/* Profile Click Area */
+
+.profile-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
 }
 
-.navbar-avatar {
-  width: 40px;
-  height: 40px;
+.profile-box img {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Dropdown menu */
-.dropdown-menu {
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  padding: 0.75rem;
-  min-width: 200px;
-  z-index: 20;
-}
-
-.dropdown-header {
-  border-bottom: 1px solid #eee;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.dropdown-header strong {
-  display: block;
-  font-size: 1rem;
-  color: #003366;
-}
-
-.dropdown-header small {
-  color: #555;
-}
-
-.logout-button {
-  background: none;
-  border: none;
-  color: #e60000;
+.user-name {
   font-weight: 500;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  width: 100%;
-  text-align: left;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  /* .navbar-left {
-    display: none;
-  } */
+/* Dropdown */
 
-  .navbar {
-    justify-content: space-between;
+.profile-dropdown {
+  position: absolute;
+  right: 25px;
+  top: 70px;
+  width: 260px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+  padding: 15px;
+  animation: dropdownSlide 0.25s ease;
+}
+
+/* User Info */
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.profile-info strong {
+  font-size: 15px;
+}
+
+.profile-info small {
+  font-size: 13px;
+  color: #666;
+  word-break: break-all;
+}
+
+/* Animation */
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .user-name {
+    display: none;
+  }
+
+  .navbar-title {
+    font-size: 17px;
+  }
+
 }

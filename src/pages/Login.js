@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { notifySuccess, notifyError } from "../utils/notify";
 import { AuthContext } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import API from "../services/api";
@@ -15,17 +16,19 @@ const Login = () => {
     setLoading(true);
     try {
       const res = await API.post("/auth/login", { email, password });
+
       login(res.data.user, res.data.token);
-      setTimeout(() => {
-        setLoading(false);
-        console.log("loging", { email, password });
-      }, 3000);
+
+      notifySuccess("Login Successful", "Welcome back to TaskFlow");
+
+      setLoading(false);
     } catch (err) {
-      alert(err.response?.data?.message || "Login Failed");
-      setTimeout(() => {
-        setLoading(false);
-        console.log("Login Failed", err.response?.data?.message);
-      }, 3000);
+      notifyError(
+        "Login Failed",
+        err.response?.data?.message || "Invalid credentials",
+      );
+
+      setLoading(false);
     }
   };
 

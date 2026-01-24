@@ -1,5 +1,159 @@
 /* src/styles/project.css */
 
+/* Page Container */
+
+.project-container {
+  padding: 25px;
+}
+
+/* Header */
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Task Grid */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Task Card */
+
+.task-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card Header */
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Status Badge */
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Todo {
+  background: #e0edff;
+  color: #1d4ed8;
+}
+
+.In-Progress {
+  background: #fff3cd;
+  color: #b45309;
+}
+
+.Completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Footer */
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Buttons */
+
+.task-edit-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.task-delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Back Button */
+
+.back-btn {
+  margin-bottom: 20px;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Skeleton Loader */
+
+.project-loader {
+  padding: 30px;
+}
+
+.skeleton-header {
+  height: 35px;
+  width: 60%;
+  background: #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-task {
+  height: 120px;
+  background: #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Modal Animation */
+
+.animate-modal {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 .project-container{
   padding: 2rem;
   max-width: 800px;

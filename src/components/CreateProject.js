@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { notifySuccess, notifyError } from "../utils/notify";
 import API from "../services/api";
 import "../styles/createProject.css";
 
@@ -10,24 +11,24 @@ const CreateProject = ({ onClose, refreshProjects }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
 
     if (!title.trim()) {
-      setError("❌ Project title is required");
+      notifyError("Validation Error", "Project title is required");
       return;
     }
 
     try {
       await API.post("/projects/create", { title, description });
-      setMessage("✅ Project created successfully!");
 
-      setTimeout(() => {
-        setMessage("");
-        refreshProjects(); // ✅ Fetch new projects immediately
-        onClose(); // ✅ Close modal after success
-      }, 1000);
+      notifySuccess("Project Created", "Project added successfully");
+
+      refreshProjects();
+      onClose();
     } catch (err) {
-      setError(err.response?.data?.message || "❌ Something went wrong");
+      notifyError(
+        "Create Failed",
+        err.response?.data?.message || "Something went wrong",
+      );
     }
   };
 
@@ -40,14 +41,26 @@ const CreateProject = ({ onClose, refreshProjects }) => {
 
         <form onSubmit={handleSubmit}>
           <label>Project Name</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
 
           <label>Description (optional)</label>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
 
           <div className="modal-buttons">
-            <button type="submit" className="save-btn">➕ Create Project</button>
-            <button type="button" className="cancel-btn" onClick={onClose}>✖ Close</button>
+            <button type="submit" className="save-btn">
+              ➕ Create Project
+            </button>
+            <button type="button" className="cancel-btn" onClick={onClose}>
+              ✖ Close
+            </button>
           </div>
         </form>
       </div>

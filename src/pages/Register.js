@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { notifySuccess, notifyError } from "../utils/notify";
 import { AuthContext } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import "../styles/register.css";
@@ -14,8 +15,13 @@ const Register = () => {
     e.preventDefault();
     try {
       await register(name, email, password, country);
+
+      notifySuccess("Account Created", "Registration successful");
     } catch (err) {
-      alert(err.response?.data?.message || "Registration Failed");
+      notifyError(
+        "Registration Failed",
+        err.response?.data?.message || "Error occurred",
+      );
     }
   };
 

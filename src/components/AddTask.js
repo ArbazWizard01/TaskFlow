@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { notifySuccess, notifyError } from "../utils/notify";
 import API from "../services/api";
 import "../styles/addTask.css";
 
@@ -15,34 +16,30 @@ const AddTask = ({ onClose, projectId, refreshTasks }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!task.title.trim()) {
-      setMessage("❌ Title is required.");
-      return;
-    }
+  e.preventDefault();
 
-    try {
-      const res = await API.post(`/tasks/${projectId}/create`, task, {
-        headers: { "Content-Type": "application/json" },
-      });
+  if (!task.title.trim()) {
+    notifyError("Validation Error", "Title is required");
+    return;
+  }
 
-      if (res.status === 201) {
-        setMessage("✅ Task added successfully!");
-        setTimeout(() => {
-          setMessage("");
-          onClose();
-          refreshTasks();
-        }, 1000);
-      } else {
-        setMessage("❌ Failed to create task.");
-      }
-    } catch (error) {
-      setMessage(
-        "❌ Server Error: " + (error.response?.data?.message || error.message)
-      );
-      console.error("Error creating task:", error);
+  try {
+    const res = await API.post(`/tasks/${projectId}/create`, task);
+
+    if (res.status === 201) {
+      notifySuccess("Task Created", "Task added successfully");
+
+      onClose();
+      refreshTasks();
     }
-  };
+  } catch (error) {
+    notifyError(
+      "Create Failed",
+      error.response?.data?.message || "Server error"
+    );
+  }
+};
+
 
   return (
     <div className="modal-overlay">
