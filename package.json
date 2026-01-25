@@ -1,8 +1,8 @@
 {
-  "homepage": "https://ArbazWizard01.github.io/TaskFlow",
+  "homepage": "https://arbazwizard01.github.io/TaskFlow",
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

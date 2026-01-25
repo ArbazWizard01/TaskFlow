@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { notifySuccess, notifyError } from "../utils/notify";
 import API from "../services/api";
 import "../styles/createProject.css";
+import { Button } from "antd";
 
 const CreateProject = ({ onClose, refreshProjects }) => {
   const [title, setTitle] = useState("");
@@ -55,12 +56,12 @@ const CreateProject = ({ onClose, refreshProjects }) => {
           />
 
           <div className="modal-buttons">
-            <button type="submit" className="save-btn">
+            <Button type="submit" className="save-btn">
               ➕ Create Project
-            </button>
-            <button type="button" className="cancel-btn" onClick={onClose}>
+            </Button>
+            <Button type="button" className="cancel-btn" onClick={onClose}>
               ✖ Close
-            </button>
+            </Button>
           </div>
         </form>
       </div>
